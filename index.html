@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitchbusters</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center bg-light">
+        <div class="row w-100">
+            <!-- Left Image Section -->
+            <div class="col-lg-6 col-md-5 d-none d-md-flex bg-primary text-white flex-column justify-content-center align-items-center text-center p-5">
+                <h2 class="display-4 mb-4">GLITCHBUSTERS Computer Shop</h2>
+                <p class="lead mb-4">Your one-stop solution for all your tech needs.</p>
+                <img src="assets/glitch.jpg" class="img-fluid" alt="Glitchbusters Logo" style="max-width: 200px;">
+            </div>
+            <!-- Login Form Section -->
+            <div class="col-lg-6 col-md-7 bg-white p-5 shadow rounded">
+                <h3 class="mb-4 text-center">Welcome Back!</h3>
+                <p class="text-center text-muted mb-4">Please enter your login details to access the system</p>
+                <form action="#" method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="mb-3 position-relative">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                        <!-- <span class="position-absolute top-50 end-0 translate-middle-y me-3">
+                            <img src="eye-icon.png" alt="Show Password" style="cursor: pointer;">
+                        </span> -->
+                    </div>
+                    <div class="mb-4 text-end">
+                        <a href="#" class="text-primary">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2">Log In</button>
+                </form>
+                <div class="text-center mt-4">
+                    <p class="text-muted">Don't have an account? <a href="#" class="text-primary">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
