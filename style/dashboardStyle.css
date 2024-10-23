@@ -2,19 +2,15 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-.sidebar {
+.sidebar-dashboad {
     height: 100vh;
 }
 
-.sidebar .nav-link {
+.sidebar-dashboad .nav-link {
     padding: 15px 10px;
     font-size: 1.1rem;
 }
 
-.sidebar .nav-link.active {
-    background-color: #007bff;
-    color: #fff;
-}
 
 .card {
     border-radius: 8px;
