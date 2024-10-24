@@ -13,7 +13,7 @@ const loadCustomerTable = () => {
             <td>${item.tele}</td>
             <td>
                  <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Update</button>
-                 <button class="btn btn-sm btn-danger delete-btn" data-id="${item.id}"><i class="fas fa-trash"></i> Delete</button>
+                 <button class="btn btn-sm btn-danger delete-btn-cus" data-id="${item.id}"><i class="fas fa-trash"></i> Delete</button>
             </td>
         </tr>`;
         tableBody.append(data); 
@@ -27,7 +27,7 @@ $("#customer_add_btn").on('click', function() {
     let tele = $('#customerPhone').val();
 
     if (!name || !email || !tele) {
-        alert("Please fill all fields.");
+        alert("Please fill all fields !!");
         return;
     }
 
@@ -42,12 +42,12 @@ $("#customer_add_btn").on('click', function() {
 
     loadCustomerTable();
 
-    $('#customerName').val('');
-    $('#customerEmail').val('');
-    $('#customerPhone').val('');
+    // $('#customerName').val('');
+    // $('#customerEmail').val('');
+    // $('#customerPhone').val('');
 });
 
-$('tbody').on('click', '.delete-btn', function() {
+$('tbody').on('click', '.delete-btn-cus', function() {
     let customerIdToDelete = $(this).data('id'); 
 
     let confirmation = confirm("Are you sure you want to delete this customer?");
