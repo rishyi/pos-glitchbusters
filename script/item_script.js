@@ -54,6 +54,7 @@ $("#item_add_btn").on('click',function(){
     item_db.push(item);
 
     loadItemTable();
+    
 
 });
 

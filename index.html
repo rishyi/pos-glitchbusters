@@ -12,12 +12,13 @@
         <link rel="stylesheet" href="style/dashboardStyle.css">
 
 </head>
+
 <body>
 
     <script src="assets/jquery-3.7.1.min.js"></script>
 
-    <!-- Dashboard -->
-    <div id="dashboard-section" class="container-fluid">
+
+    <div  class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-dashboad">
@@ -25,36 +26,36 @@
                     <h4 class="text-center text-light py-4">GLITCHBUSTERS</h4>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a id="dashboard-nav" class="nav-link active text-light" href="#">
+                            <button id="dashboard-nav" class="nav-link active text-light" >
                                 <span  class="fas fa-tachometer-alt"></span> Dashboard
-                            </a>
+                            </button>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">
-                                <span class="fas fa-cash-register"></span> Sales
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="item-nav" class="nav-link text-light" href="#">
-                                <span  class="fas fa-boxes"></span> Item
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="orders-nav" class="nav-link text-light" href="#">
-                                <span  class="fas fa-file-invoice"></span> Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="customers-nav" class="nav-link text-light" href="#">
+                        <li class="nav-item" id="customers-nav-2">
+                            <button id="customers-nav" class="nav-link text-light" >
                                 <span  class="fas fa-users"></span> Customers
-                            </a>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="item-nav" class="nav-link text-light" >
+                                <span  class="fas fa-boxes"></span> Item
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="orders-nav" class="nav-link text-light" >
+                                <span  class="fas fa-file-invoice"></span> Orders
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link text-light" >
+                                <span class="fas fa-cash-register"></span> Sales
+                            </button>
                         </li>
                     </ul>
                 </div>
             </nav>
 
-            <!-- Main Content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <!-- Main Content dashboard -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="dashboard-section">
                 <!-- Top Bar -->
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
@@ -120,21 +121,21 @@
                             <tbody>
                                 <tr>
                                     <td>#101</td>
-                                    <td>John Doe</td>
+                                    <td>Hashen Doe</td>
                                     <td>LKR 12,000</td>
                                     <td><span class="badge bg-success">Completed</span></td>
                                     <td>Oct 2, 2024</td>
                                 </tr>
                                 <tr>
                                     <td>#102</td>
-                                    <td>Jane Smith</td>
+                                    <td>Sujith Smith</td>
                                     <td>LKR 25,000</td>
                                     <td><span class="badge bg-warning">Pending</span></td>
                                     <td>Oct 3, 2024</td>
                                 </tr>
                                 <tr>
                                     <td>#103</td>
-                                    <td>Sam Wilson</td>
+                                    <td>Samn Wilson</td>
                                     <td>LKR 8,000</td>
                                     <td><span class="badge bg-danger">Canceled</span></td>
                                     <td>Oct 4, 2024</td>
@@ -153,48 +154,9 @@
                     </div>
                 </div>
             </main>
-        </div>
-    </div>
 
-    <!-- Item -->
-    <div id="item-section" class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-dashboad">
-                <div class="position-sticky">
-                    <h4 class="text-center text-light py-4">GLITCHBUSTERS</h4>
-                    <ul class="nav flex-column">
-                        <li id="dashboard-nav" class="nav-item">
-                            <a id="dashboard-nav" class="nav-link active text-light" href="">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">
-                                <i class="fas fa-cash-register"></i> Sales
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="item-nav" class="nav-link text-light" href="#">
-                                <i class="fas fa-boxes"></i> Item
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="orders-nav" class="nav-link text-light" href="#">
-                                <i class="fas fa-file-invoice"></i> Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="customers-nav" class="nav-link text-light" href="#">
-                                <i class="fas fa-users"></i> Customers
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <!-- Main Content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              <!-- Main Content-item -->
+              <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="item-section">
                 <!-- Top Bar -->
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Items</h1>
@@ -273,48 +235,9 @@
                     </div>
                 </div>
             </main>
-        </div>
-    </div>
 
-    <!-- Customer -->
-    <div id="customer-section" class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-dashboad">
-                <div class="position-sticky">
-                    <h4 class="text-center text-light py-4">GLITCHBUSTERS</h4>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a id="dashboard-nav" class="nav-link active text-light" href="#">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">
-                                <i class="fas fa-cash-register"></i> Sales
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">
-                                <i class="fas fa-boxes"></i> Item
-                            </a>
-                        </li>
-                        <li id="order" class="nav-item">
-                            <a class="nav-link text-light" href="#">
-                                <i class="fas fa-file-invoice"></i> Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">
-                                <i class="fas fa-users"></i> Customers
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <!-- Main Content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+             <!-- Main Content-customer -->
+             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="customer-section">
                 <!-- Top Bar -->
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Customers</h1>
@@ -387,203 +310,167 @@
                     </div>
                 </div>
             </main>
+
+             <!-- Main Content-Order -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="order-section">
+                <!-- Top Bar -->
+                <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+                >
+                <h1 class="h2">Orders</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button
+                    type="button"
+                    class="btn btn-sm btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addOrderModal"
+                    >
+                    <i class="fas fa-plus"></i> Add Order
+                    </button>
+                </div>
+                </div>
+
+                <!-- Order Table -->
+                <div class="card">
+                <div class="card-header">Order Details</div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Customer Name</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>1</td>
+                        <td>Ravishka</td>
+                        <td>Gaming Mouse</td>
+                        <td>2</td>
+                        <td>5000</td>
+                        <td>LKR 10,000</td>
+                        <td><span class="badge bg-success">Completed</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-warning">
+                            <i class="fas fa-edit"></i> Update
+                            </button>
+                            <button class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                        </tr>
+                        <!-- Additional rows as needed -->
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+
+                <!-- Add Order Modal -->
+                <div
+                class="modal fade"
+                id="addOrderModal"
+                tabindex="-1"
+                aria-labelledby="addOrderModalLabel"
+                aria-hidden="true"
+                >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addOrderModalLabel">
+                        Add New Order
+                        </h5>
+                        <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="mb-3">
+                            <label for="orderCustomerName" class="form-label"
+                            >Customer Name</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control"
+                            id="orderCustomerName"
+                            placeholder="Enter customer name"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="orderItem" class="form-label">Item</label>
+                            <input
+                            type="text"
+                            class="form-control"
+                            id="orderItem"
+                            placeholder="Enter item name"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="orderQuantity" class="form-label"
+                            >Quantity</label
+                            >
+                            <input
+                            type="number"
+                            class="form-control"
+                            id="orderQuantity"
+                            placeholder="Enter quantity"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="orderUnit" class="form-label"
+                            >Order Item Count</label
+                            >
+                            <input
+                            type="number"
+                            class="form-control"
+                            id="orderUnit"
+                            placeholder="Enter Order Unit"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="orderTotalPrice" class="form-label"
+                            >Total Price</label
+                            >
+                            <input
+                            type="number"
+                            class="form-control"
+                            id="orderTotalPrice"
+                            placeholder="Enter total price"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="orderStatus" class="form-label"
+                            >Status</label
+                            >
+                            <select class="form-control" id="orderStatus">
+                            <option value="Completed">Completed</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Canceled">Canceled</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Save Order
+                        </button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </main>
         </div>
     </div>
 
-   <!-- Orders -->
-   <div id="order-section" class="container-fluid">
-    <div class="row">
-      <!-- Sidebar -->
-      <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-dashboad">
-        <div class="position-sticky">
-          <h4 class="text-center text-light py-4">GLITCHBUSTERS</h4>
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active text-light" href="#">
-                <i class="fas fa-tachometer-alt"></i> Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#">
-                <i class="fas fa-cash-register"></i> Sales
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#">
-                <i class="fas fa-boxes"></i> Item
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#">
-                <i class="fas fa-file-invoice"></i> Orders
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#">
-                <i class="fas fa-users"></i> Customers
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
 
-      <!-- Main Content -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <!-- Top Bar -->
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-        >
-          <h1 class="h2">Orders</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <button
-              type="button"
-              class="btn btn-sm btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#addOrderModal"
-            >
-              <i class="fas fa-plus"></i> Add Order
-            </button>
-          </div>
-        </div>
 
-        <!-- Order Table -->
-        <div class="card">
-          <div class="card-header">Order Details</div>
-          <div class="card-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Customer Name</th>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                  <th>Unit Price</th>
-                  <th>Total Price</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Ravishka</td>
-                  <td>Gaming Mouse</td>
-                  <td>2</td>
-                  <td>5000</td>
-                  <td>LKR 10,000</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                  <td>
-                    <button class="btn btn-sm btn-warning">
-                      <i class="fas fa-edit"></i> Update
-                    </button>
-                    <button class="btn btn-sm btn-danger">
-                      <i class="fas fa-trash"></i> Delete
-                    </button>
-                  </td>
-                </tr>
-                <!-- Additional rows as needed -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Add Order Modal -->
-        <div
-          class="modal fade"
-          id="addOrderModal"
-          tabindex="-1"
-          aria-labelledby="addOrderModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="addOrderModalLabel">
-                  Add New Order
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="orderCustomerName" class="form-label"
-                      >Customer Name</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="orderCustomerName"
-                      placeholder="Enter customer name"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="orderItem" class="form-label">Item</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="orderItem"
-                      placeholder="Enter item name"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="orderQuantity" class="form-label"
-                      >Quantity</label
-                    >
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="orderQuantity"
-                      placeholder="Enter quantity"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="orderUnit" class="form-label"
-                      >Order Item Count</label
-                    >
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="orderUnit"
-                      placeholder="Enter Order Unit"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="orderTotalPrice" class="form-label"
-                      >Total Price</label
-                    >
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="orderTotalPrice"
-                      placeholder="Enter total price"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="orderStatus" class="form-label"
-                      >Status</label
-                    >
-                    <select class="form-control" id="orderStatus">
-                      <option value="Completed">Completed</option>
-                      <option value="Pending">Pending</option>
-                      <option value="Canceled">Canceled</option>
-                    </select>
-                  </div>
-                  <button type="submit" class="btn btn-primary">
-                    Save Order
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
 
 
    
@@ -599,12 +486,18 @@
         let item_section = document.getElementById("item-section");
         let order_section = document.getElementById("order-section");
 
-        customer_section.style.display = "none";
-        item_section.style.display = "none";
-        order_section.style.display = "none";
-        // dashboard_section.style.display = "none";
+
+            customer_section.style.display = "none";
+            item_section.style.display = "none";
+            order_section.style.display = "none";
+            dashboard_nav.style.setProperty("color", "teal", "important");
 
         customers_nav.addEventListener('click',function(){
+            orders_nav.style.setProperty("color", "white");
+            dashboard_nav.style.setProperty("color", "white");
+            customers_nav.style.setProperty("color", "teal", "important");
+            item_nav.style.setProperty("color", "white");
+
             dashboard_section.style.display = "none";
             customer_section.style.display = "block";
             item_section.style.display = "none";
@@ -612,6 +505,11 @@
         });
 
         item_nav.addEventListener('click',function(){
+            orders_nav.style.setProperty("color", "white");
+            dashboard_nav.style.setProperty("color", "white");
+            item_nav.style.setProperty("color", "teal", "important");
+            customers_nav.style.setProperty("color", "white");
+
             dashboard_section.style.display = "none";
             customer_section.style.display = "none";
             item_section.style.display = "block";
@@ -619,6 +517,11 @@
         });
 
         orders_nav.addEventListener('click',function(){
+            dashboard_nav.style.setProperty("color", "white");
+            item_nav.style.setProperty("color", "white");
+            orders_nav.style.setProperty("color", "teal", "important");
+            customers_nav.style.setProperty("color", "white");
+
             dashboard_section.style.display = "none";
             customer_section.style.display = "none";
             item_section.style.display = "none";
@@ -626,7 +529,11 @@
         });
 
         dashboard_nav.addEventListener('click', function() {
-             alert("Dashboard clicked!");
+            orders_nav.style.setProperty("color", "white");
+            item_nav.style.setProperty("color", "white");
+            dashboard_nav.style.setProperty("color", "teal", "important");
+            customers_nav.style.setProperty("color", "white");
+
             dashboard_section.style.display = "block";
             customer_section.style.display = "none";
             item_section.style.display = "none";

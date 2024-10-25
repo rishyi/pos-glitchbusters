@@ -42,9 +42,9 @@ $("#customer_add_btn").on('click', function() {
 
     loadCustomerTable();
 
-    // $('#customerName').val('');
-    // $('#customerEmail').val('');
-    // $('#customerPhone').val('');
+    $('#customerName').val('');
+    $('#customerEmail').val('');
+    $('#customerPhone').val('');
 });
 
 $('tbody').on('click', '.delete-btn-cus', function() {
