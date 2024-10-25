@@ -4,49 +4,644 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glitchbusters</title>
-    <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style/style.css">
+        <!-- Bootstrap CSS CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- FontAwesome for Icons -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style/dashboardStyle.css">
+
 </head>
 <body>
-    <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center bg-light">
-        <div class="row w-100">
-            <!-- Left Image Section -->
-            <div class="col-lg-6 col-md-5 d-none d-md-flex bg-primary text-white flex-column justify-content-center align-items-center text-center p-5">
-                <h2 class="display-4 mb-4">GLITCHBUSTERS Computer Shop</h2>
-                <p class="lead mb-4">Your one-stop solution for all your tech needs.</p>
-                <img src="assets/glitch.jpg" class="img-fluid" alt="Glitchbusters Logo" style="max-width: 200px;">
-            </div>
-            <!-- Login Form Section -->
-            <div class="col-lg-6 col-md-7 bg-white p-5 shadow rounded">
-                <h3 class="mb-4 text-center">Welcome Back!</h3>
-                <p class="text-center text-muted mb-4">Please enter your login details to access the system</p>
-                <form action="#" method="POST">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
-                    </div>
-                    <div class="mb-3 position-relative">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
-                        <!-- <span class="position-absolute top-50 end-0 translate-middle-y me-3">
-                            <img src="eye-icon.png" alt="Show Password" style="cursor: pointer;">
-                        </span> -->
-                    </div>
-                    <div class="mb-4 text-end">
-                        <a href="#" class="text-primary">Forgot Password?</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100 py-2">Log In</button>
-                </form>
-                <div class="text-center mt-4">
-                    <p class="text-muted">Don't have an account? <a href="#" class="text-primary">Sign Up</a></p>
+
+    <script src="assets/jquery-3.7.1.min.js"></script>
+
+    <!-- Dashboard -->
+    <div id="dashboard-section" class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-dashboad">
+                <div class="position-sticky">
+                    <h4 class="text-center text-light py-4">GLITCHBUSTERS</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a id="dashboard-nav" class="nav-link active text-light" href="#">
+                                <span  class="fas fa-tachometer-alt"></span> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">
+                                <span class="fas fa-cash-register"></span> Sales
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="item-nav" class="nav-link text-light" href="#">
+                                <span  class="fas fa-boxes"></span> Item
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="orders-nav" class="nav-link text-light" href="#">
+                                <span  class="fas fa-file-invoice"></span> Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="customers-nav" class="nav-link text-light" href="#">
+                                <span  class="fas fa-users"></span> Customers
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Top Bar -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard front card-->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card text-white bg-primary mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Sales</h5>
+                                <p class="card-text">LKR 250,000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-white bg-success mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Orders</h5>
+                                <p class="card-text">120 Orders</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-white bg-warning mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Available Stock</h5>
+                                <p class="card-text">45 Items</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-white bg-danger mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Pending Orders</h5>
+                                <p class="card-text">5 Orders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        Recent Orders
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Total Amount</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#101</td>
+                                    <td>John Doe</td>
+                                    <td>LKR 12,000</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>Oct 2, 2024</td>
+                                </tr>
+                                <tr>
+                                    <td>#102</td>
+                                    <td>Jane Smith</td>
+                                    <td>LKR 25,000</td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                    <td>Oct 3, 2024</td>
+                                </tr>
+                                <tr>
+                                    <td>#103</td>
+                                    <td>Sam Wilson</td>
+                                    <td>LKR 8,000</td>
+                                    <td><span class="badge bg-danger">Canceled</span></td>
+                                    <td>Oct 4, 2024</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        Inventory Overview
+                    </div>
+                    <div class="card-body">
+                        <p>Chart showing stock levels here...</p>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
 
+    <!-- Item -->
+    <div id="item-section" class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-dashboad">
+                <div class="position-sticky">
+                    <h4 class="text-center text-light py-4">GLITCHBUSTERS</h4>
+                    <ul class="nav flex-column">
+                        <li id="dashboard-nav" class="nav-item">
+                            <a id="dashboard-nav" class="nav-link active text-light" href="">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">
+                                <i class="fas fa-cash-register"></i> Sales
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="item-nav" class="nav-link text-light" href="#">
+                                <i class="fas fa-boxes"></i> Item
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="orders-nav" class="nav-link text-light" href="#">
+                                <i class="fas fa-file-invoice"></i> Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="customers-nav" class="nav-link text-light" href="#">
+                                <i class="fas fa-users"></i> Customers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Top Bar -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Items</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
+                            <i class="fas fa-plus"></i> Add Item
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item Table -->
+                <div class="card">
+                    <div class="card-header">
+                        Item Details
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="itemTableBody">
+                                <!-- <tr>
+                                    <td>1</td>
+                                    <td>Gaming Mouse</td>
+                                    <td>Accessories</td>
+                                    <td>LKR 5,000</td>
+                                    <td>20</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Update</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                                    </td>
+                                </tr> -->
+                                <!-- Additional rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Add Item Modal -->
+                <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addItemModalLabel">Add New Item</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="itemName" class="form-label">Item Name</label>
+                                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="itemCategory" class="form-label">Category</label>
+                                        <input type="text" class="form-control" id="itemCategory" placeholder="Enter category">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="itemPrice" class="form-label">Price</label>
+                                        <input type="number" class="form-control" id="itemPrice" placeholder="Enter price">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="itemStock" class="form-label">Stock</label>
+                                        <input type="number" class="form-control" id="itemStock" placeholder="Enter stock quantity">
+                                    </div>
+                                    <button id="item_add_btn" type="button" class="btn btn-primary">Save Item</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Customer -->
+    <div id="customer-section" class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-dashboad">
+                <div class="position-sticky">
+                    <h4 class="text-center text-light py-4">GLITCHBUSTERS</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a id="dashboard-nav" class="nav-link active text-light" href="#">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">
+                                <i class="fas fa-cash-register"></i> Sales
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">
+                                <i class="fas fa-boxes"></i> Item
+                            </a>
+                        </li>
+                        <li id="order" class="nav-item">
+                            <a class="nav-link text-light" href="#">
+                                <i class="fas fa-file-invoice"></i> Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">
+                                <i class="fas fa-users"></i> Customers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Top Bar -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Customers</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addCustomerModal">
+                            <i class="fas fa-user-plus"></i> Add Customer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Table -->
+                <div class="card">
+                    <div class="card-header">
+                        Customer Details
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
+                                    <td>1</td>
+                                    <td>Ravishka</td>
+                                    <td>john@example.com</td>
+                                    <td>071-234-5678</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Update</button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                                    </td>
+                                </tr> -->
+                                <!-- Additional rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Add Customer Modal -->
+                <div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addCustomerModalLabel">Add New Customer</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="customerName" class="form-label">Customer Name</label>
+                                        <input type="text" class="form-control" id="customerName" placeholder="Enter name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="customerEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="customerEmail" placeholder="Enter email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="customerPhone" class="form-label">Phone</label>
+                                        <input type="text" class="form-control" id="customerPhone" placeholder="Enter phone number">
+                                    </div>
+                                    <button id="customer_add_btn" type="button" class="btn btn-primary">Save Customer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+   <!-- Orders -->
+   <div id="order-section" class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar-dashboad">
+        <div class="position-sticky">
+          <h4 class="text-center text-light py-4">GLITCHBUSTERS</h4>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active text-light" href="#">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">
+                <i class="fas fa-cash-register"></i> Sales
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">
+                <i class="fas fa-boxes"></i> Item
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">
+                <i class="fas fa-file-invoice"></i> Orders
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">
+                <i class="fas fa-users"></i> Customers
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <!-- Top Bar -->
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+        >
+          <h1 class="h2">Orders</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <button
+              type="button"
+              class="btn btn-sm btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#addOrderModal"
+            >
+              <i class="fas fa-plus"></i> Add Order
+            </button>
+          </div>
+        </div>
+
+        <!-- Order Table -->
+        <div class="card">
+          <div class="card-header">Order Details</div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Customer Name</th>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Unit Price</th>
+                  <th>Total Price</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Ravishka</td>
+                  <td>Gaming Mouse</td>
+                  <td>2</td>
+                  <td>5000</td>
+                  <td>LKR 10,000</td>
+                  <td><span class="badge bg-success">Completed</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-warning">
+                      <i class="fas fa-edit"></i> Update
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <!-- Additional rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Add Order Modal -->
+        <div
+          class="modal fade"
+          id="addOrderModal"
+          tabindex="-1"
+          aria-labelledby="addOrderModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addOrderModalLabel">
+                  Add New Order
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="orderCustomerName" class="form-label"
+                      >Customer Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="orderCustomerName"
+                      placeholder="Enter customer name"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="orderItem" class="form-label">Item</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="orderItem"
+                      placeholder="Enter item name"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="orderQuantity" class="form-label"
+                      >Quantity</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="orderQuantity"
+                      placeholder="Enter quantity"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="orderUnit" class="form-label"
+                      >Order Item Count</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="orderUnit"
+                      placeholder="Enter Order Unit"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="orderTotalPrice" class="form-label"
+                      >Total Price</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="orderTotalPrice"
+                      placeholder="Enter total price"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="orderStatus" class="form-label"
+                      >Status</label
+                    >
+                    <select class="form-control" id="orderStatus">
+                      <option value="Completed">Completed</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Canceled">Canceled</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Save Order
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+   
+
+    <script>
+        let dashboard_nav = document.getElementById("dashboard-nav");
+        let item_nav = document.getElementById("item-nav");
+        let orders_nav = document.getElementById("orders-nav");
+        let customers_nav = document.getElementById("customers-nav");
+
+        let dashboard_section = document.getElementById("dashboard-section");
+        let customer_section = document.getElementById("customer-section");
+        let item_section = document.getElementById("item-section");
+        let order_section = document.getElementById("order-section");
+
+        customer_section.style.display = "none";
+        item_section.style.display = "none";
+        order_section.style.display = "none";
+        // dashboard_section.style.display = "none";
+
+        customers_nav.addEventListener('click',function(){
+            dashboard_section.style.display = "none";
+            customer_section.style.display = "block";
+            item_section.style.display = "none";
+            order_section.style.display = "none";
+        });
+
+        item_nav.addEventListener('click',function(){
+            dashboard_section.style.display = "none";
+            customer_section.style.display = "none";
+            item_section.style.display = "block";
+            order_section.style.display = "none";
+        });
+
+        orders_nav.addEventListener('click',function(){
+            dashboard_section.style.display = "none";
+            customer_section.style.display = "none";
+            item_section.style.display = "none";
+            order_section.style.display = "block";
+        });
+
+        dashboard_nav.addEventListener('click', function() {
+             alert("Dashboard clicked!");
+            dashboard_section.style.display = "block";
+            customer_section.style.display = "none";
+            item_section.style.display = "none";
+            order_section.style.display = "none"
+        });
+
+        
+
+    </script>
+
+    <script src="script/customer_scritpt.js"></script>
+    <script src="script/item_script.js"></script>
+
     <!-- Bootstrap JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
