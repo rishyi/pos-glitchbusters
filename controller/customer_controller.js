@@ -2,7 +2,7 @@ let customer_db = [];
 let customerId = 1;
 
 const loadCustomerTable = () => {
-    let tableBody = $('tbody'); 
+    let tableBody = $("#customerTableBody"); 
     tableBody.empty(); 
 
     customer_db.map((item, index) => {
@@ -47,7 +47,7 @@ $("#customer_add_btn").on('click', function() {
     $('#customerPhone').val('');
 });
 
-$('tbody').on('click', '.delete-btn-cus', function() {
+$("#customerTableBody").on('click', '.delete-btn-cus', function() {
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -89,7 +89,3 @@ $('tbody').on('click', '.delete-btn-cus', function() {
         }
       });
 });
-
-
-
-
