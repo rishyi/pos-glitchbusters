@@ -1,18 +1,24 @@
-let customer_db = [];
-let customerId = 1;
+
+import CustomerModel from "../models/customer_model.js";
+console.log(CustomerModel); 
+import { customer_array } from "../db/database.js";
+
+// let customer_array  = [];
+
+let selected_customer_index = null;
 
 const loadCustomerTable = () => {
     let tableBody = $("#customerTableBody"); 
     tableBody.empty(); 
 
-    customer_db.map((item, index) => {
+    customer_array.map((item, index) => {
         let data = `<tr>
             <td>${item.id}</td> <!-- Display customer ID -->
             <td>${item.name}</td>
             <td>${item.email}</td>
             <td>${item.tele}</td>
             <td>
-                 <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Update</button>
+                 <button class="btn btn-sm btn-warning update-btn-cus"><i class="fas fa-edit"></i> Update</button>
                  <button class="btn btn-sm btn-danger delete-btn-cus" data-id="${item.id}"><i class="fas fa-trash"></i> Delete</button>
             </td>
         </tr>`;
@@ -22,6 +28,7 @@ const loadCustomerTable = () => {
 
 // Add a customer
 $("#customer_add_btn").on('click', function() {
+
     let name = $('#customerName').val();
     let email = $('#customerEmail').val();
     let tele = $('#customerPhone').val();
@@ -31,22 +38,36 @@ $("#customer_add_btn").on('click', function() {
         return;
     }
 
-    let customer = {
-        id: customerId++,  
-        name: name,
-        email: email,
-        tele: tele
-    };
+    // let customer = {
+    //     id: customer_array.length + 1,  
+    //     name: name,
+    //     email: email,
+    //     tele: tele
+    // };
 
-    customer_db.push(customer);
+    let customer = new CustomerModel(
+      customer_array.length + 1,
+      name,
+      email,
+      tele
+    );
+
+    customer_array.push(customer);
 
     loadCustomerTable();
 
-    $('#customerName').val('');
-    $('#customerEmail').val('');
-    $('#customerPhone').val('');
+    clearTextFeilds();
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Customer has been saved !!",
+      showConfirmButton: false,
+      timer: 1500
+    });
 });
 
+// delete custoer
 $("#customerTableBody").on('click', '.delete-btn-cus', function() {
 
     const swalWithBootstrapButtons = Swal.mixin({
@@ -65,13 +86,12 @@ $("#customerTableBody").on('click', '.delete-btn-cus', function() {
         cancelButtonText: "No, cancel!",
         reverseButtons: true
       }).then((result) => {
-        let customerIdToDelete = $(this).data('id'); 
         
-            customer_db = customer_db.filter(customer => customer.id !== customerIdToDelete);
+        if (result.isConfirmed) {
+      
+            customer_array.splice(selected_customer_index,1);
             loadCustomerTable(); 
 
-    
-        if (result.isConfirmed) {
           swalWithBootstrapButtons.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",
@@ -89,3 +109,75 @@ $("#customerTableBody").on('click', '.delete-btn-cus', function() {
         }
       });
 });
+
+// table action update
+$("#customerTableBody").on('click', '.update-btn-cus', function() {
+
+  $('#addCustomerModal').modal('show');
+
+  $('#customerTableBody').on('click', 'tr', function () {
+    let index = $(this).index();
+
+    selected_customer_index = index;
+
+    let customer_obj = customer_array[index];
+
+    let name = customer_obj.name;
+    let email = customer_obj.email;
+    let tele = customer_obj.tele;
+
+    $('#customerName').val(name);
+    $('#customerEmail').val(email);
+    $('#customerPhone').val(tele);
+  });
+
+  clearTextFeilds();
+
+});
+
+// update customer
+$('#customer_update_btn').on('click',function () {
+
+  Swal.fire({
+    title: "Do you want to save the changes?",
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: "Save",
+    denyButtonText: `Don't update`
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      let name = $('#customerName').val();
+      let email = $('#customerEmail').val();
+      let tele = $('#customerPhone').val();
+    
+      let update_customer = new CustomerModel(
+        customer_array[selected_customer_index].id,
+        name,
+        email,
+        tele
+      );
+    
+      customer_array[selected_customer_index] = update_customer;
+    
+      loadCustomerTable();
+    
+      clearTextFeilds();
+      Swal.fire("Saved!", "", "success");
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
+    }
+  });
+
+
+
+})
+
+
+
+// clear text feilds
+const clearTextFeilds = () => {
+$('#customerName').val('');
+$('#customerEmail').val('');
+$('#customerPhone').val('');
+}
