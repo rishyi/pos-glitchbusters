@@ -33,17 +33,22 @@ $("#customer_add_btn").on('click', function() {
     let email = $('#customerEmail').val();
     let tele = $('#customerPhone').val();
 
-    if (!name || !email || !tele) {
-        alert("Please fill all fields !!");
+    if (name.length === 0) {
+      Swal.fire("Name cannot be empty !");
         return;
     }
 
-    // let customer = {
-    //     id: customer_array.length + 1,  
-    //     name: name,
-    //     email: email,
-    //     tele: tele
-    // };
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(!emailRegex.test(email)){
+      Swal.fire("Ivalid Emil address. please check the email type !");
+      return;
+    }
+
+    const sriLankanMobileRegex = /^(?:\+94|0)?7[0-9]{8}$/;
+    if(!sriLankanMobileRegex.test(tele)){
+      Swal.fire("Invalid mobile number.please enter sri lankn number!");
+      return;
+    }
 
     let customer = new CustomerModel(
       customer_array.length + 1,
@@ -172,8 +177,6 @@ $('#customer_update_btn').on('click',function () {
 
 
 })
-
-
 
 // clear text feilds
 const clearTextFeilds = () => {
